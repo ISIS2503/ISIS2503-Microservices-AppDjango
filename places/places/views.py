@@ -19,3 +19,19 @@ def PlaceCreate(request):
         place.name = data_json["name"]
         place.save()
         return HttpResponse("successfully created place")
+    
+def PlacesCreate(request):
+    if request.method == 'POST':
+        data = request.body.decode('utf-8')
+        data_json = json.loads(data)
+        places_list = []
+        for place in data_json:
+                    if type(place) == 'str' and len(place) > 1:
+                        db_place = Place()
+                        db_place.name = place
+                        places_list.append(db_place)
+                    else:
+                        return HttpResponse("Place creation failed. Invalid place name")
+        
+        Place.objects.bulk_create(places_list)
+        return HttpResponse("successfully created places")
