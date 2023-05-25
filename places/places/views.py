@@ -26,7 +26,7 @@ def PlacesCreate(request):
         data_json = json.loads(data)
         places_list = []
         for place in data_json:
-                    if type(place) == 'str' and len(place) > 1:
+                    if isinstance(place, str) and len(place) > 1:
                         db_place = Place()
                         db_place.name = place
                         places_list.append(db_place)
