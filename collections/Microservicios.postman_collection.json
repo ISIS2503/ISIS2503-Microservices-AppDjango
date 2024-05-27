@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"measurements\",\r\n    \"url\": \"http://35.193.151.156:8080\"\r\n}",
+							"raw": "{\r\n    \"name\":\"documentos\",\r\n    \"url\": \"http://35.193.151.156:8080\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -47,7 +47,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"hosts\": [\"10.128.0.31\", \"0.0.0.0\", \"34.69.159.153\"],\r\n     \"paths\": [\"/measurements\"],\r\n    \"strip_path\": false,\r\n    \"methods\": [\r\n        \"GET\"\r\n    ],\r\n    \"service\": {\r\n        \"id\": \"261f278b-a35e-4c61-af55-66f8b3aa7406\"\r\n       },\r\n    \"preserve_host\": true\r\n}",
+							"raw": "{\r\n    \"hosts\": [\"10.128.0.31\", \"0.0.0.0\", \"34.69.159.153\"],\r\n     \"paths\": [\"/documentos\"],\r\n    \"strip_path\": false,\r\n    \"methods\": [\r\n        \"GET\"\r\n    ],\r\n    \"service\": {\r\n        \"id\": \"261f278b-a35e-4c61-af55-66f8b3aa7406\"\r\n       },\r\n    \"preserve_host\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -75,10 +75,10 @@
 			]
 		},
 		{
-			"name": "Variables",
+			"name": "Tipos",
 			"item": [
 				{
-					"name": "Create Variable",
+					"name": "Create Tipo",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -92,7 +92,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://34.171.66.152:8080/variablecreate/",
+							"raw": "http://34.171.66.152:8080/tipocreate/",
 							"protocol": "http",
 							"host": [
 								"34",
@@ -102,7 +102,7 @@
 							],
 							"port": "8080",
 							"path": [
-								"variablecreate",
+								"tipocreate",
 								""
 							]
 						}
@@ -110,7 +110,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Variables",
+					"name": "Get Tipos",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -127,7 +127,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://34.171.66.152:8080/variables/",
+							"raw": "http://34.171.66.152:8080/tipos/",
 							"protocol": "http",
 							"host": [
 								"34",
@@ -137,7 +137,7 @@
 							],
 							"port": "8080",
 							"path": [
-								"variables",
+								"tipos",
 								""
 							]
 						}
@@ -147,16 +147,16 @@
 			]
 		},
 		{
-			"name": "Measurements",
+			"name": "Documentos",
 			"item": [
 				{
-					"name": "Create Measurement",
+					"name": "Create Document",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"variable\": 1,\r\n    \"value\": 25,\r\n    \"unit\": \"C\",\r\n    \"place\": \"ML\"\r\n}",
+							"raw": "{\r\n    \"tipo\": 1,\r\n    \"value\": 25,\r\n    \"unit\": \"C\",\r\n    \"place\": \"ML\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -164,7 +164,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://35.193.151.156:8080/measurementcreate/",
+							"raw": "http://35.193.151.156:8080/documentcreate/",
 							"protocol": "http",
 							"host": [
 								"35",
@@ -174,7 +174,7 @@
 							],
 							"port": "8080",
 							"path": [
-								"measurementcreate",
+								"documentcreate",
 								""
 							]
 						}
@@ -182,7 +182,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Measurements",
+					"name": "Get Documentos",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -191,7 +191,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"variable\": 1,\r\n    \"value\": 24,\r\n    \"unit\": \"C\",\r\n    \"place\": \"ML\"\r\n}",
+							"raw": "{\r\n    \"tipo\": 1,\r\n    \"value\": 24,\r\n    \"unit\": \"C\",\r\n    \"place\": \"ML\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -199,7 +199,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://35.193.151.156:8080/measurements/",
+							"raw": "http://35.193.151.156:8080/documentos/",
 							"protocol": "http",
 							"host": [
 								"35",
@@ -209,7 +209,7 @@
 							],
 							"port": "8080",
 							"path": [
-								"measurements",
+								"documentos",
 								""
 							]
 						}
@@ -217,13 +217,13 @@
 					"response": []
 				},
 				{
-					"name": "Create many measurements",
+					"name": "Create many documentos",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    {\r\n        \"variable\": 1,\r\n        \"unit\": \"C\",\r\n        \"value\": 68.56,\r\n        \"place\": \"RGD-1\"\r\n    },\r\n    {\r\n        \"variable\": 1,\r\n        \"unit\": \"C\",\r\n        \"value\": 68.56,\r\n        \"place\": \"RGD-1\"\r\n    }\r\n]",
+							"raw": "[\r\n    {\r\n        \"tipo\": 1,\r\n        \"unit\": \"C\",\r\n        \"value\": 68.56,\r\n        \"place\": \"RGD-1\"\r\n    },\r\n    {\r\n        \"tipo\": 1,\r\n        \"unit\": \"C\",\r\n        \"value\": 68.56,\r\n        \"place\": \"RGD-1\"\r\n    }\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -231,7 +231,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://35.193.151.156:8080/createmeasurements/",
+							"raw": "http://35.193.151.156:8080/createdocumentos/",
 							"protocol": "http",
 							"host": [
 								"35",
@@ -241,7 +241,7 @@
 							],
 							"port": "8080",
 							"path": [
-								"createmeasurements",
+								"createdocumentos",
 								""
 							]
 						}

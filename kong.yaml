@@ -1,31 +1,39 @@
 _format_version: "2.1"
 
 services:
-  - name: variables_service
-    host: variables_upstream
+  - name: documentos_service
+    host: documentos_upstream
     protocol: http
     routes:
-      - name: variables
+      - name: documentos-root
         paths:
-          - /variables
+          - /documentos  # Apuntar la raíz al servicio de documentos
+        strip_path: false
+      - name: document-upload
+        paths:
+          - /documentupload
+        strip_path: false
+      - name: document-manager
+        paths:
+          - /manejador
         strip_path: false
 
-  - name: measurements_service
-    host: measurements_upstream
+  - name: tipos_service
+    host: tipos_upstream
     protocol: http
     routes:
-      - name: measurements
+      - name: tipos
         paths:
-          - /measurements
+          - /
         strip_path: false
     
 upstreams:
-  - name: variables_upstream
+  - name: tipos_upstream
     targets:
       - target: 10.128.0.84:8080
         weight: 100
 
-  - name: measurements_upstream
+  - name: documentos_upstream
     targets:
       - target: 10.128.0.85:8080
         weight: 100
