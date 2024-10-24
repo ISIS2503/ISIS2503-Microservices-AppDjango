@@ -5,7 +5,7 @@ import views
 def create_app():
     app = FastAPI()
     
-    app.include_router(views.router, prefix=views.VERSION_PREFIX)
+    app.include_router(views.router, prefix=views.API_PREFIX)
 
     return app
 

@@ -15,7 +15,7 @@ from fastapi import HTTPException
 
 def validate_id(place_id: str):
     try:
-        ObjectId(place_id)
+        return ObjectId(place_id)
     except:
         raise HTTPException(status_code=404, detail=f"Place with ID {place_id} not found")
 
@@ -41,10 +41,25 @@ async def get_place(place_id: str):
 
     raise HTTPException(status_code=404, detail=f"Place with ID {place_id} not found")
 
+async def get_place_by_name(name: str):
+    """
+    Get a single place by name
+    :param name: The name of the place
+    :return: The place or None
+    """
+
+    place = await places_collection.find_one({"name": name})
+    
+    return place
+
 async def create_place(place: Place):
     """
     Insert a new place record.
     """
+    
+    if await get_place_by_name(place.name):
+        raise HTTPException(status_code=409, detail=f"Place with name {place.name} already exists")
+    
     new_place = await places_collection.insert_one(
         place.model_dump(by_alias=True, exclude=["id"])
     )
@@ -61,6 +76,9 @@ async def update_place(place_id: str, place: Place):
     :return: The updated
     """
     place_id = validate_id(place_id)
+    
+    if await get_place_by_name(place.name) and place.name != (await get_place(place_id))["name"]:
+        raise HTTPException(status_code=409, detail=f"Place with name {place.name} already exists")
     
     update_result = await places_collection.update_one(
         {"_id": place_id}, {"$set": place.model_dump(by_alias=True, exclude=["id"])}
