@@ -87,9 +87,13 @@ resources:
         value: |
           #!/bin/bash
           sudo apt-get update
-          sudo apt install python3-pip -y
+          sudo apt install software-properties-common -y
+          sudo add-apt-repository ppa:deadsnakes/ppa -y
+          sudo apt-get update
+          sudo apt install python3.12 -y
+          sudo curl -sS https://bootstrap.pypa.io/get-pip.py | python3.12
           sudo mkdir /home/labs
           cd /home/labs
           sudo git clone https://github.com/ISIS2503/ISIS2503-Microservices-AppDjango.git
           cd ISIS2503-Microservices-AppDjango/places
-          sudo pip3 install -r requirements.txt
+          sudo python3.12 -m pip install -r requirements.txt
