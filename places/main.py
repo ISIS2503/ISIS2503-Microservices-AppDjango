@@ -5,7 +5,7 @@ import views
 def create_app():
     app = FastAPI(
         docs_url="/places/docs",
-        openapi_url="/places/openapi.json"
+        openapi_url="/places/openapi.json",
         redoc_url=None,
     )
     
