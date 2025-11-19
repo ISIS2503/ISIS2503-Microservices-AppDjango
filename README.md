@@ -2,30 +2,6 @@
 
 ## Comandos por sección:
 
-### 2.1 Desplegar la infraestructura
-Clonar el repositorio:
-```bash
-git clone https://github.com/ISIS2503/ISIS2503-Microservices-AppDjango.git
-```
-Navegar al directorio del proyecto:
-```bash	
-cd ISIS2503-Microservices-AppDjango
-```
-Crear el despliegue con Google Cloud Deployment Manager:
-```bash	
-gcloud deployment-manager deployments create <nombre-del-despliegue> --config deployment.yaml
-```
-**Nota:** Reemplace `<nombre-del-despliegue>` por el nombre que desee.
-Eliminar el despliegue:
-```bash	
-gcloud deployment-manager deployments delete <nombre-del-despliegue>
-```
-**Nota:** Reemplace `<nombre-del-despliegue>` por el nombre que desee.
-Verificar los logs del servicio de scripts de inicio de Google:
-```bash	
-sudo journalctl -u google-startup-scripts.service
-```
-
 ### 2.2 Configuración del API Gateway Kong
 Navegar al directorio del proyecto:
 ```bash	

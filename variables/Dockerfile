@@ -1,12 +1,14 @@
 FROM python:3.8.10-alpine3.13
 
+ARG VARIABLES_DB_HOST
+
 WORKDIR /app
 
 # Copy the django app to the working directory
 COPY . /app
 
 # Set the environment variables
-ENV VARIABLES_DB_HOST 10.128.0.82
+ENV VARIABLES_DB_HOST <VARIABLES_DB_HOST>
 
 # Install Python dependencies
 RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev

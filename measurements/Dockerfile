@@ -6,8 +6,8 @@ WORKDIR /app
 COPY . /app
 
 # Set the environment variables
-ENV MEASUREMENTS_DB_HOST 10.128.0.2
-ENV VARIABLES_HOST 10.128.0.3
+ENV MEASUREMENTS_DB_HOST <MEASUREMENTS_DB_HOST>
+ENV VARIABLES_HOST <VARIABLES_HOST>
 
 # Install Python dependencies
 RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev
